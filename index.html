@@ -37,32 +37,62 @@
         console.log('width: ', wid);
         console.log('height: ', hei);
 
-        btnActive.onmouseover = function() {
+        if (hei > 740){
+            btnActive.onmouseover = function() {
+    
+                const top =  Math.floor(Math.random()*600) ;
+                const right = Math.floor(Math.random()*600) ;
+    
+                console.log('top: ', top)
+                console.log('right: ', right)                   
+    
+                if (Math.abs(top) > hei) {
+                    top = Math.abs(top) - hei;
+                }
+    
+                if (Math.abs(right) > wid) {
+                    right = Math.abs(right) - wid;
+                }
+    
+                btnActive.style.top = Math.abs(top - 170) + 'px';
+                btnActive.style.right = Math.abs(right - 170) + 'px';
+            }
+    
+            btnActive.onclick = function(){
+                gift.style.display = 'block';
+            }
+    
+            btnDis.onclick = function(){
+                alert('Hông nhận cũng phải nhận nhé!')
+            }
+        } else {
+            btnActive.onclick = function() {
+    
+                const top =  Math.floor(Math.random()*600) ;
+                const right = Math.floor(Math.random()*600) ;
 
-            const top =  Math.floor(Math.random()*600) ;
-            const right = Math.floor(Math.random()*600) ;
+                console.log('top: ', top)
+                console.log('right: ', right)                   
 
-            console.log('top: ', top)
-            console.log('right: ', right)                   
+                if (Math.abs(top) > hei) {
+                    top = Math.abs(top) - hei;
+                }
 
-            if (Math.abs(top) > hei) {
-                top = Math.abs(top) - hei;
+                if (Math.abs(right) > wid) {
+                    right = Math.abs(right) - wid;
+                }
+
+                btnActive.style.top = Math.abs(top - 170) + 'px';
+                btnActive.style.right = Math.abs(right - 170) + 'px';
             }
 
-            if (Math.abs(right) > wid) {
-                right = Math.abs(right) - wid;
+            btnActive.ondblclick = function(){
+                gift.style.display = 'block';
             }
 
-            btnActive.style.top = Math.abs(top - 170) + 'px';
-            btnActive.style.right = Math.abs(right - 170) + 'px';
-        }
-
-        btnActive.onclick = function(){
-            gift.style.display = 'block';
-        }
-
-        btnDis.onclick = function(){
-            alert('Hông nhận cũng phải nhận nhé!')
+            btnDis.onclick = function(){
+                alert('Hông nhận cũng phải nhận nhé!')
+            }
         }
         
     </script>
