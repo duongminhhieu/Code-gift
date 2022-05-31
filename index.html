@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="responsive.css">
+    <title>Gift 1/6</title>
+</head>
+<body>
+    
+    <div class="heading-block">
+
+        <h1 class="heading">Quà 1/6 nè, có nhận hông ! </h1>
+
+    </div>
+
+    <a class="gift" href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'>
+        Nhấn vào đây
+    </a>
+
+    
+    <button class="btn btn-active">Có</button>
+    <button class="btn btn-disabled">Không</button>
+
+    <script>
+        
+        const btnActive = document.querySelector('.btn-active');
+        const btnDis = document.querySelector('.btn-disabled');
+        const gift = document.querySelector('.gift');
+        console.log(btnActive);
+
+        const wid = window.innerWidth;
+        const hei = window.innerHeight;
+
+        console.log('width: ', wid);
+        console.log('height: ', hei);
+
+        btnActive.onmouseover = function() {
+
+            const top =  Math.floor(Math.random()*600) ;
+            const right = Math.floor(Math.random()*600) ;
+
+            console.log('top: ', top)
+            console.log('right: ', right)                   
+
+            if (Math.abs(top) > hei) {
+                top = Math.abs(top) - hei;
+            }
+
+            if (Math.abs(right) > wid) {
+                right = Math.abs(right) - wid;
+            }
+
+            btnActive.style.top = Math.abs(top - 170) + 'px';
+            btnActive.style.right = Math.abs(right - 170) + 'px';
+        }
+
+        btnActive.onclick = function(){
+            gift.style.display = 'block';
+        }
+
+        btnDis.onclick = function(){
+            alert('Hông nhận cũng phải nhận nhé!')
+        }
+        
+    </script>
+
+</body>
+</html>
